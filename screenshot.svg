@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 852" width="420" height="852">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </linearGradient>
+    <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="50%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#3a3a3a"/>
+    </linearGradient>
+    <clipPath id="screenClip">
+      <rect x="24" y="24" width="372" height="804" rx="44"/>
+    </clipPath>
+  </defs>
+
+  <!-- Phone bezel -->
+  <rect x="4" y="4" width="412" height="844" rx="56" fill="url(#bezel)" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="24" y="24" width="372" height="804" rx="44" fill="url(#bg)"/>
+
+  <!-- Status bar -->
+  <rect x="24" y="24" width="372" height="44" fill="#fafafa" clip-path="url(#screenClip)"/>
+  <!-- Notch -->
+  <rect x="160" y="24" width="100" height="28" rx="14" fill="#1a1a1a"/>
+  <!-- Time -->
+  <text x="380" y="46" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#2a2a2a" text-anchor="end">9:41</text>
+  <!-- Battery/Cellular icons - simple dots -->
+  <circle cx="50" cy="46" r="3" fill="#666"/>
+  <circle cx="60" cy="46" r="3" fill="#666"/>
+  <rect x="68" y="38" width="18" height="10" rx="3" fill="none" stroke="#666" stroke-width="1.5"/>
+  <rect x="68" y="38" width="14" height="10" rx="3" fill="#666"/>
+
+  <!-- Content area (below status bar, clipped) -->
+  <g clip-path="url(#screenClip)">
+    <rect x="24" y="68" width="372" height="760" fill="#fafafa"/>
+
+    <!-- Header -->
+    <rect x="24" y="68" width="372" height="56" fill="#1976D2"/>
+    <text x="210" y="102" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">cmp-linked-text</text>
+
+    <!-- Text content area -->
+    <rect x="44" y="144" width="332" height="280" rx="12" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Regular text -->
+    <text x="64" y="180" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">Visit our site or email us!</text>
+
+    <!-- URL (blue underlined) -->
+    <text x="64" y="210" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1976D2" text-decoration="underline">https://github.com/govindtank/</text>
+    <text x="64" y="230" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1976D2" text-decoration="underline">cmp-linked-text</text>
+
+    <!-- Regular text -->
+    <text x="64" y="260" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">Got questions? Write to us at:</text>
+
+    <!-- Email (blue) -->
+    <text x="64" y="290" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1976D2">contact@example.com</text>
+
+    <!-- Regular text -->
+    <text x="64" y="320" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">Or call us anytime:</text>
+
+    <!-- Phone (blue) -->
+    <text x="64" y="350" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1976D2">+91-98765-43210</text>
+
+    <!-- Regular text -->
+    <text x="64" y="380" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">All links open the right app!</text>
+
+    <!-- Info box -->
+    <rect x="44" y="440" width="332" height="56" rx="12" fill="#E3F2FD" stroke="#BBDEFB" stroke-width="1"/>
+    <text x="210" y="466" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1565C0" text-anchor="middle">🔗 URL &nbsp;|&nbsp; 📧 Email &nbsp;|&nbsp; 📞 Phone</text>
+    <text x="210" y="486" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64B5F6" text-anchor="middle">Auto-detected &amp; clickable</text>
+
+    <!-- Bottom navigation pill -->
+    <rect x="170" y="780" width="80" height="4" rx="2" fill="#ccc"/>
+  </g>
+</svg>

@@ -1,9 +1,23 @@
 # cmp-linked-text
 
-Compose Multiplatform library that auto-detects URLs, emails, and phone numbers in text and renders them as clickable links.
+<p align="center">
+  <img src="screenshot.svg" width="280" alt="cmp-linked-text demo">
+</p>
 
-```
-implementation("io.github.govindtank:cmp-linked-text:1.0.0")
+Compose Multiplatform library that auto-detects URLs, emails, and phone numbers in text and renders them as clickable links. Tapping a link opens the platform browser, mail client, or dialer.
+
+## Installation
+
+Add the dependency to your `build.gradle.kts`:
+
+```kotlin
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.github.govindtank:cmp-linked-text:1.0.0")
+}
 ```
 
 ## Usage
@@ -11,26 +25,72 @@ implementation("io.github.govindtank:cmp-linked-text:1.0.0")
 ```kotlin
 import io.github.govindtank.linkedtext.LinkedText
 import io.github.govindtank.linkedtext.LinkStyle
+import androidx.compose.ui.graphics.Color
 
 @Composable
-fun MyScreen() {
+fun BioScreen() {
     LinkedText(
-        text = "Visit https://example.com or email me@example.com or call +1234567890",
+        text = "Check out https://example.com or email us at hello@test.com",
         style = LinkStyle(
-            linkColor = Color(0xFF007AFF),
+            linkColor = Color(0xFF1976D2),
             underline = true
         )
     )
 }
 ```
 
-On Android set `appContext` before use:
+### Android setup
+
+On Android set `appContext` before using `LinkedText`:
 
 ```kotlin
 import io.github.govindtank.linkedtext.appContext
 
 appContext = context
 ```
+
+## API Reference
+
+### `LinkedText`
+
+| Parameter    | Type        | Default              | Description                               |
+|-------------|-------------|----------------------|-------------------------------------------|
+| `text`      | `String`    | (required)           | Input text with URLs, emails, or phones   |
+| `style`     | `LinkStyle` | `LinkStyle()`        | Link appearance configuration             |
+| `modifier`  | `Modifier`  | `Modifier`           | Compose modifier                          |
+| `fontSize`  | `TextUnit`  | `TextUnit.Unspecified` | Base font size                          |
+| `fontWeight`| `FontWeight?`| `null`              | Base font weight                          |
+| `fontStyle` | `FontStyle?`| `null`              | Base font style                           |
+
+### `LinkStyle`
+
+| Parameter    | Type    | Default              | Description                     |
+|-------------|---------|----------------------|---------------------------------|
+| `linkColor` | `Color` | `Color(0xFF007AFF)`  | Color for detected links        |
+| `normalColor`| `Color` | `Color.Unspecified`  | Color for non-link text         |
+| `underline` | `Boolean`| `true`              | Show underline on links         |
+
+### Detection Patterns
+
+- **URLs**: `http://` or `https://` followed by non-whitespace characters
+- **Emails**: Standard email format (`user@domain.tld`)
+- **Phones**: Digits, `+`, `-`, `.`, `(`, `)`, and spaces (7+ characters)
+
+## Platform Support
+
+| Platform | Status | Notes                         |
+|----------|--------|-------------------------------|
+| Android  | ✅     | Opens browser/mail/dialer via `Intent` |
+| iOS      | ✅     | Opens via `UIApplication.shared`       |
+| Desktop  | ❌     | Not supported yet             |
+| Web      | ❌     | Not supported yet             |
+
+### Requirements
+
+- **Android**: API 21+ (Android 5.0)
+- **iOS**: iOS 13+
+- **Kotlin**: 1.9+
+- **Compose Multiplatform**: 1.5+
 
 ## Features
 
