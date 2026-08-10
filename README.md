@@ -1,5 +1,7 @@
 # cmp-linked-text
 
+[![JitPack](https://jitpack.io/v/govindtank/cmp-linked-text.svg)](https://jitpack.io/#govindtank/cmp-linked-text)
+
 <p align="center">
   <img src="screenshot.svg" width="280" alt="cmp-linked-text demo">
 </p>
@@ -8,17 +10,20 @@ Compose Multiplatform library that auto-detects URLs, emails, and phone numbers 
 
 ## Installation
 
-Add the dependency to your `build.gradle.kts`:
+Add the JitPack repository and dependency to your `build.gradle.kts`:
 
 ```kotlin
 repositories {
-    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
-    implementation("io.github.govindtank:cmp-linked-text:1.0.0")
+    implementation("com.github.govindtank:cmp-linked-text:1.0.0")
 }
 ```
+
+> [!IMPORTANT]
+> After tagging a release on GitHub (`git tag v1.0.0 && git push --tags`), JitPack automatically builds and publishes the artifacts. Replace `1.0.0` with your actual tag.
 
 ## Usage
 
