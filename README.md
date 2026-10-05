@@ -1,14 +1,35 @@
 # cmp-linked-text
 
-[![JitPack](https://jitpack.io/v/govindtank/cmp-linked-text.svg)](https://jitpack.io/#govindtank/cmp-linked-text)
-
 <p align="center">
-  <img src="screenshot.svg" width="280" alt="cmp-linked-text demo">
+  <a href="https://jitpack.io/#govindtank/cmp-linked-text"><img src="https://jitpack.io/v/govindtank/cmp-linked-text.svg?style=flat-square" alt="JitPack"></a>
+  <a href="https://github.com/govindtank/cmp-linked-text/actions"><img src="https://img.shields.io/github/actions/workflow/status/govindtank/cmp-linked-text/build.yml?branch=main&style=flat-square&label=build" alt="Build Status"></a>
+  <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20CMP-blue?style=flat-square" alt="Platform">
+  <img src="https://img.shields.io/badge/Kotlin-2.0.0-purple?style=flat-square" alt="Kotlin">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/govindtank"><img src="https://img.shields.io/badge/Author-Govind%20Tank-orange?style=flat-square" alt="Author"></a>
 </p>
 
-Compose Multiplatform library that auto-detects URLs, emails, and phone numbers in text and renders them as clickable links. Tapping a link opens the platform browser, mail client, or dialer.
+<p align="center">
+  <b>Compose Multiplatform auto-linking text component with URL, email, and phone detection.</b><br>
+  <i>Architected &amp; Crafted with ❤️ by <a href="https://github.com/govindtank">Govind Tank</a></i>
+</p>
 
-## Installation
+<p align="center">
+  <img src="./screenshot.svg" width="340" alt="cmp-linked-text demo" style="border-radius: 14px;" />
+</p>
+
+---
+
+## ⚡ Features
+
+- 🔗 **Automatic Link Detection**: Detects HTTP/HTTPS URLs, emails, phone numbers, and @mentions.
+- 📱 **Cross-Platform Intent Launching**: Opens system browser, mail client, or dialer on tap.
+- 🎨 **Fully Customizable Styling**: Configure regular text style, link color, underlined states, and click callbacks.
+- 🚀 **Compose Multiplatform**: Native integration for Android and iOS.
+
+---
+
+## 📦 Installation
 
 Add the JitPack repository and dependency to your `build.gradle.kts`:
 
@@ -22,20 +43,20 @@ dependencies {
 }
 ```
 
-> [!IMPORTANT]
-> After tagging a release on GitHub (`git tag v1.0.0 && git push --tags`), JitPack automatically builds and publishes the artifacts. Replace `1.0.0` with your actual tag.
+---
 
-## Usage
+## 🚀 Usage
 
 ```kotlin
+import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import io.github.govindtank.linkedtext.LinkedText
 import io.github.govindtank.linkedtext.LinkStyle
-import androidx.compose.ui.graphics.Color
 
 @Composable
-fun BioScreen() {
+fun ProfileBioScreen() {
     LinkedText(
-        text = "Check out https://example.com or email us at hello@test.com",
+        text = "Visit https://govindtank.github.io or reach out at contact@govindtank.dev! Call +1234567890.",
         style = LinkStyle(
             linkColor = Color(0xFF1976D2),
             underline = true
@@ -44,64 +65,33 @@ fun BioScreen() {
 }
 ```
 
-### Android setup
+---
 
-On Android set `appContext` before using `LinkedText`:
+## 💖 Support & Sponsorship
 
-```kotlin
-import io.github.govindtank.linkedtext.appContext
+If you find this library helpful for your Compose Multiplatform applications, consider supporting continuous development:
 
-appContext = context
-```
+<p align="left">
+  <a href="https://www.patreon.com/govindtank"><img src="https://img.shields.io/badge/Patreon-Support%20Creator-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Patreon"></a>
+  <a href="https://github.com/sponsors/govindtank"><img src="https://img.shields.io/badge/GitHub%20Sponsors-Sponsor-EA4AAA?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Sponsors"></a>
+  <a href="https://buymeacoffee.com/govindtank"><img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
+</p>
 
-## API Reference
+- **Patreon**: [patreon.com/govindtank](https://www.patreon.com/govindtank)
+- **GitHub Sponsors**: [github.com/sponsors/govindtank](https://github.com/sponsors/govindtank)
+- **Buy Me a Coffee**: [buymeacoffee.com/govindtank](https://buymeacoffee.com/govindtank)
 
-### `LinkedText`
+---
 
-| Parameter    | Type        | Default              | Description                               |
-|-------------|-------------|----------------------|-------------------------------------------|
-| `text`      | `String`    | (required)           | Input text with URLs, emails, or phones   |
-| `style`     | `LinkStyle` | `LinkStyle()`        | Link appearance configuration             |
-| `modifier`  | `Modifier`  | `Modifier`           | Compose modifier                          |
-| `fontSize`  | `TextUnit`  | `TextUnit.Unspecified` | Base font size                          |
-| `fontWeight`| `FontWeight?`| `null`              | Base font weight                          |
-| `fontStyle` | `FontStyle?`| `null`              | Base font style                           |
+## 👨💻 Author
 
-### `LinkStyle`
+**Govind Tank**
+- **GitHub**: [@govindtank](https://github.com/govindtank)
+- **Website**: [govindtank.github.io](https://govindtank.github.io)
+- **LinkedIn**: [linkedin.com/in/govind-tank](https://linkedin.com/in/govind-tank)
 
-| Parameter    | Type    | Default              | Description                     |
-|-------------|---------|----------------------|---------------------------------|
-| `linkColor` | `Color` | `Color(0xFF007AFF)`  | Color for detected links        |
-| `normalColor`| `Color` | `Color.Unspecified`  | Color for non-link text         |
-| `underline` | `Boolean`| `true`              | Show underline on links         |
+---
 
-### Detection Patterns
+## 📄 License
 
-- **URLs**: `http://` or `https://` followed by non-whitespace characters
-- **Emails**: Standard email format (`user@domain.tld`)
-- **Phones**: Digits, `+`, `-`, `.`, `(`, `)`, and spaces (7+ characters)
-
-## Platform Support
-
-| Platform | Status | Notes                         |
-|----------|--------|-------------------------------|
-| Android  | ✅     | Opens browser/mail/dialer via `Intent` |
-| iOS      | ✅     | Opens via `UIApplication.shared`       |
-| Desktop  | ❌     | Not supported yet             |
-| Web      | ❌     | Not supported yet             |
-
-### Requirements
-
-- **Android**: API 21+ (Android 5.0)
-- **iOS**: iOS 13+
-- **Kotlin**: 1.9+
-- **Compose Multiplatform**: 1.5+
-
-## Features
-
-- URL detection (http/https)
-- Email detection
-- Phone number detection
-- Custom link color and underline style
-- Platform browser/mail/dialer on click
-- Kotlin Multiplatform (Android + iOS)
+Apache License 2.0
